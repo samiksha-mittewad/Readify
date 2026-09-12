@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Readify - Discover books, stories and ideas that stay with you."
+    >
+
+    <title>Readify | Your World of Stories</title>
+
+
+    <!-- Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Main CSS -->
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+
+            <a
+                href="/"
+                class="logo"
+            >
+
+                <i class="fa-solid fa-book-open"></i>
+
+                <span>
+                    Read<span class="logo-highlight">ify</span>
+                </span>
+
+            </a>
+
+
+            <nav
+                class="nav-links"
+                id="navLinks"
+            >
+
+                <a
+                    href="/"
+                    class="active"
+                >
+                    Home
+                </a>
+
+
+                <a href="/books">
+                    Books
+                </a>
+
+
+                <a href="/cart">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Cart
+
+                </a>
+
+
+                <% if (user) { %>
+
+                    <span class="welcome-user">
+
+                        <i class="fa-regular fa-circle-user"></i>
+
+                        Hi, <%= user.name %>
+
+                    </span>
+
+
+                    <a
+                        href="/logout"
+                        class="nav-login"
+                    >
+                        Logout
+                    </a>
+
+
+                <% } else { %>
+
+                    <a
+                        href="/login"
+                        class="nav-login"
+                    >
+                        Login
+                    </a>
+
+
+                    <a
+                        href="/register"
+                        class="nav-register"
+                    >
+                        Register
+                    </a>
+
+                <% } %>
+
+            </nav>
+
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <main>
+
+
+        <section class="hero">
+
+
+            <div class="hero-orb hero-orb-one"></div>
+
+            <div class="hero-orb hero-orb-two"></div>
+
+
+            <div class="hero-container">
+
+
+                <!-- HERO TEXT -->
+
+                <div class="hero-text reveal">
+
+
+                    <div class="hero-badge">
+
+                        <span class="badge-dot"></span>
+
+                        Your world of stories
+
+                    </div>
+
+
+                    <h1>
+
+                        Discover your next
+
+                        <span>
+                            great read.
+                        </span>
+
+                    </h1>
+
+
+                    <p>
+
+                        Explore stories, ideas and adventures curated
+                        for curious minds. Find a book that inspires
+                        your next chapter.
+
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+
+                        <a
+                            href="/books"
+                            class="btn btn-primary"
+                        >
+
+                            <span>
+                                Explore Books
+                            </span>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+
+                        <a
+                            href="#books"
+                            class="btn btn-secondary"
+                        >
+
+                            <i class="fa-solid fa-book-open"></i>
+
+                            <span>
+                                Browse Collection
+                            </span>
+
+                        </a>
+
+
+                    </div>
+
+
+                    <div class="hero-trust">
+
+
+                        <div class="trust-avatars">
+
+                            <span>R</span>
+                            <span>A</span>
+                            <span>S</span>
+                            <span>+</span>
+
+                        </div>
+
+
+                        <div class="trust-text">
+
+                            <strong>
+                                Loved by readers
+                            </strong>
+
+                            <small>
+                                Discover your next favorite book
+                            </small>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- HERO BOOK -->
+
+                <div class="hero-book reveal">
+
+
+                    <div class="floating-circle circle-one"></div>
+
+
+                    <div class="floating-page page-one">
+
+                        <i class="fa-solid fa-bookmark"></i>
+
+                    </div>
+
+
+                    <div class="floating-page page-two">
+
+                        <i class="fa-solid fa-feather"></i>
+
+                    </div>
+
+
+                    <div class="floating-page page-three">
+
+                        <i class="fa-solid fa-quote-left"></i>
+
+                    </div>
+
+
+                    <span class="hero-particle particle-one"></span>
+
+                    <span class="hero-particle particle-two"></span>
+
+                    <span class="hero-particle particle-three"></span>
+
+                    <span class="hero-particle particle-four"></span>
+
+                    <span class="hero-particle particle-five"></span>
+
+
+                    <div class="floating-circle circle-two"></div>
+
+
+                    <div class="book-visual">
+
+
+                        <div class="book-shadow"></div>
+
+
+                        <div class="book-cover">
+
+
+                            <div class="book-cover-top">
+                                READIFY
+                            </div>
+
+
+                            <div class="book-cover-icon">
+
+                                <i class="fa-solid fa-book-open"></i>
+
+                            </div>
+
+
+                            <div class="book-cover-content">
+
+
+                                <span class="cover-small">
+                                    STORIES
+                                </span>
+
+
+                                <h2>
+
+                                    THAT
+                                    <br>
+                                    STAY
+
+                                </h2>
+
+
+                                <span class="cover-line"></span>
+
+
+                                <small>
+                                    YOUR NEXT CHAPTER
+                                </small>
+
+
+                            </div>
+
+
+                            <div class="book-cover-bottom">
+                                EST. 2026
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="floating-card floating-card-one">
+
+
+                        <div class="floating-icon">
+
+                            <i class="fa-solid fa-star"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                4.9/5
+                            </strong>
+
+                            <small>
+                                Reader rating
+                            </small>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="floating-card floating-card-two">
+
+
+                        <div class="floating-icon">
+
+                            <i class="fa-solid fa-book"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                6
+                            </strong>
+
+                            <small>
+                                Books available
+                            </small>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FEATURES
+        ====================================================== -->
+
+        <section class="features">
+
+
+            <div class="features-container">
+
+
+                <div class="feature reveal">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Fast Delivery
+                        </h3>
+
+                        <p>
+                            Books delivered to your doorstep.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature reveal">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Secure Shopping
+                        </h3>
+
+                        <p>
+                            Your information stays protected.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature reveal">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-book"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Curated Collection
+                        </h3>
+
+                        <p>
+                            Handpicked books for every reader.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature reveal">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-headphones"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Reader Support
+                        </h3>
+
+                        <p>
+                            We're here whenever you need us.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             BOOK COLLECTION
+        ====================================================== -->
+
+        <section
+            class="books-section"
+            id="books"
+        >
+
+
+            <div class="books-container">
+
+
+                <!-- HEADER -->
+
+                <div class="section-header reveal">
+
+
+                    <div class="section-heading">
+
+
+                        <span class="section-label">
+                            OUR COLLECTION
+                        </span>
+
+
+                        <h2>
+                            Popular Books
+                        </h2>
+
+
+                        <p>
+                            Handpicked stories worth making room for
+                            on your bookshelf.
+                        </p>
+
+
+                    </div>
+
+
+                    <a
+                        href="/books"
+                        class="view-all"
+                    >
+
+                        View All
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- SEARCH + FILTER -->
+
+                <div class="book-controls reveal">
+
+
+                    <div class="book-search">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            id="bookSearch"
+                            placeholder="Search books or authors..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <div class="category-filters">
+
+
+                        <button
+                            class="category-filter active"
+                            type="button"
+                            data-category="all"
+                        >
+                            All
+                        </button>
+
+
+                        <button
+                            class="category-filter"
+                            type="button"
+                            data-category="Fiction"
+                        >
+                            Fiction
+                        </button>
+
+
+                        <button
+                            class="category-filter"
+                            type="button"
+                            data-category="Programming"
+                        >
+                            Programming
+                        </button>
+
+
+                        <button
+                            class="category-filter"
+                            type="button"
+                            data-category="Finance"
+                        >
+                            Finance
+                        </button>
+
+
+                        <button
+                            class="category-filter"
+                            type="button"
+                            data-category="Self Help"
+                        >
+                            Self Help
+                        </button>
+
+
+                        <button
+                            class="category-filter"
+                            type="button"
+                            data-category="Fantasy"
+                        >
+                            Fantasy
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     BOOK GRID
+                ================================================== -->
+
+                <div
+                    class="book-grid"
+                    id="bookGrid"
+                >
+
+
+                    <% if (books && books.length > 0) { %>
+
+
+                        <% books.forEach((book) => { %>
+
+
+                            <article
+                                class="book-card reveal"
+                                data-category="<%= book.category %>"
+                                data-title="<%= book.title.toLowerCase() %>"
+                                data-author="<%= book.author.toLowerCase() %>"
+                            >
+
+
+                                <!-- IMAGE -->
+
+                                <div class="book-image">
+
+
+                                    <img
+                                        src="<%= book.image %>"
+                                        alt="<%= book.title %>"
+                                        loading="lazy"
+                                    >
+
+
+                                    <span class="category-badge">
+                                        <%= book.category %>
+                                    </span>
+
+
+                                    <button
+                                        class="wishlist-btn"
+                                        type="button"
+                                        aria-label="Add to wishlist"
+                                        title="Add to wishlist"
+                                    >
+
+                                        <i class="fa-regular fa-heart"></i>
+
+                                    </button>
+
+
+                                    <div class="book-overlay">
+
+
+                                        <a
+                                            href="/books/<%= book.id %>"
+                                            class="quick-view"
+                                        >
+
+                                            <i class="fa-regular fa-eye"></i>
+
+                                            Quick View
+
+                                        </a>
+
+
+                                    </div>
+
+
+                                </div>
+
+
+
+                                <!-- BOOK INFORMATION -->
+
+                                <div class="book-info">
+
+
+                                    <h3>
+                                        <%= book.title %>
+                                    </h3>
+
+
+                                    <p class="author">
+
+                                        <i class="fa-regular fa-user"></i>
+
+                                        <%= book.author %>
+
+                                    </p>
+
+
+                                    <p class="description">
+
+                                        <%= book.description %>
+
+                                    </p>
+
+
+                                    <!-- RATING -->
+
+                                    <div class="book-rating">
+
+
+                                        <span class="stars">
+
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+
+                                        </span>
+
+
+                                        <span>
+                                            4.8
+                                        </span>
+
+
+                                    </div>
+
+
+                                    <!-- PRICE -->
+
+                                    <div class="book-bottom">
+
+
+                                        <span class="price">
+
+                                            ₹<%= Number(book.price).toFixed(2) %>
+
+                                        </span>
+
+
+                                        <span class="stock available">
+
+                                            <i class="fa-solid fa-circle"></i>
+
+                                            Available
+
+                                        </span>
+
+
+                                    </div>
+
+
+                                    <!-- =================================================
+                                         ACTION BUTTONS
+                                    ================================================== -->
+
+                                    <div
+                                        class="book-actions"
+                                    >
+
+
+                                        <a
+                                            href="/books/<%= book.id %>"
+                                            class="btn-view"
+                                        >
+
+                                            <i class="fa-regular fa-eye"></i>
+
+                                            View Details
+
+                                        </a>
+
+
+                                        <button
+                                            type="button"
+                                            class="btn-cart"
+                                            data-book-id="<%= book.id %>"
+                                        >
+
+                                            <i class="fa-solid fa-cart-shopping"></i>
+
+                                            Add to Cart
+
+                                        </button>
+
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </article>
+
+
+                        <% }) %>
+
+
+                    <% } else { %>
+
+
+                        <div class="empty-books">
+
+
+                            <div class="empty-icon">
+
+                                <i class="fa-solid fa-book-open"></i>
+
+                            </div>
+
+
+                            <h3>
+                                No books available yet
+                            </h3>
+
+
+                            <p>
+                                Our collection is being updated.
+                                Check back soon.
+                            </p>
+
+
+                        </div>
+
+
+                    <% } %>
+
+
+                </div>
+
+
+
+                <!-- NO RESULTS -->
+
+                <div
+                    class="no-results"
+                    id="noResults"
+                    style="display: none;"
+                >
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <h3>
+                        No books found
+                    </h3>
+
+                    <p>
+                        Try another title, author or category.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             STATS
+        ====================================================== -->
+
+        <section class="stats-section">
+
+
+            <div class="stats-container">
+
+
+                <div class="stat reveal">
+
+                    <strong data-count="6">
+                        0
+                    </strong>
+
+                    <span>
+                        Books Available
+                    </span>
+
+                </div>
+
+
+                <div class="stat reveal">
+
+                    <strong data-count="500">
+                        0
+                    </strong>
+
+                    <span>
+                        Happy Readers
+                    </span>
+
+                </div>
+
+
+                <div class="stat reveal">
+
+                    <strong data-count="5">
+                        0
+                    </strong>
+
+                    <span>
+                        Categories
+                    </span>
+
+                </div>
+
+
+                <div class="stat reveal">
+
+                    <strong data-count="4.9">
+                        0
+                    </strong>
+
+                    <span>
+                        Average Rating
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CTA
+        ====================================================== -->
+
+        <section class="cta">
+
+
+            <div class="cta-pattern"></div>
+
+
+            <div class="cta-content reveal">
+
+
+                <div class="cta-icon">
+
+                    <i class="fa-solid fa-book-open-reader"></i>
+
+                </div>
+
+
+                <span class="section-label">
+                    START YOUR JOURNEY
+                </span>
+
+
+                <h2>
+
+                    Every book opens
+
+                    <span>
+                        a new world.
+                    </span>
+
+                </h2>
+
+
+                <p>
+                    Your next unforgettable story is only
+                    a few pages away.
+                </p>
+
+
+                <a
+                    href="/books"
+                    class="btn btn-light"
+                >
+
+                    Start Exploring
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+
+        <div class="footer-content">
+
+
+            <div class="footer-brand">
+
+
+                <a
+                    href="/"
+                    class="logo"
+                >
+
+                    <i class="fa-solid fa-book-open"></i>
+
+                    <span>
+                        Read<span class="logo-highlight">ify</span>
+                    </span>
+
+                </a>
+
+
+                <p>
+
+                    Your trusted destination for discovering
+                    great books and unforgettable stories.
+
+                </p>
+
+
+                <div class="creator-badge">
+
+                    <span>
+                        CRAFTED BY
+                    </span>
+
+                    <strong>
+                        Samiksha Ganesh Mitttewad
+                    </strong>
+
+                </div>
+
+
+                <div class="social-links">
+
+
+                    <a
+                        href="#"
+                        aria-label="Instagram"
+                    >
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+
+                    <a
+                        href="#"
+                        aria-label="Twitter"
+                    >
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+
+
+                    <a
+                        href="#"
+                        aria-label="Facebook"
+                    >
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="footer-links">
+
+
+                <h4>
+                    Explore
+                </h4>
+
+
+                <a href="/">
+                    Home
+                </a>
+
+
+                <a href="/books">
+                    All Books
+                </a>
+
+
+                <a href="#books">
+                    Popular Books
+                </a>
+
+
+                <a href="/cart">
+                    Shopping Cart
+                </a>
+
+
+            </div>
+
+
+
+            <div class="footer-links">
+
+
+                <h4>
+                    Account
+                </h4>
+
+
+                <% if (user) { %>
+
+                    <a href="/logout">
+                        Logout
+                    </a>
+
+                <% } else { %>
+
+                    <a href="/login">
+                        Login
+                    </a>
+
+                    <a href="/register">
+                        Create Account
+                    </a>
+
+                <% } %>
+
+
+                <a href="/books">
+                    Browse Collection
+                </a>
+
+
+            </div>
+
+
+
+            <div class="footer-links">
+
+
+                <h4>
+                    Readify
+                </h4>
+
+
+                <p class="footer-note">
+                    Stories that stay with you.
+                </p>
+
+
+                <span class="footer-contact">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    support@readify.com
+
+                </span>
+
+
+                <span class="footer-contact">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Pune, India
+
+                </span>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="copyright">
+
+
+            <span>
+                © 2026 Readify. All Rights Reserved.
+            </span>
+
+
+            <span class="developer-credit">
+
+                Designed &amp; Developed by
+
+                <strong>
+                    Samiksha Ganesh Mitttewad
+                </strong>
+
+            </span>
+
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite"
+    >
+
+
+        <div class="toast-icon">
+
+            <i class="fa-solid fa-check"></i>
+
+        </div>
+
+
+        <div class="toast-content">
+
+
+            <strong>
+                Added to cart
+            </strong>
+
+
+            <span>
+                Your book is ready for checkout.
+            </span>
+
+
+        </div>
+
+
+        <button
+            type="button"
+            class="toast-close"
+            onclick="closeToast()"
+            aria-label="Close notification"
+        >
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="/js/main.js"></script>
+
+    <script src="/js/cart.js"></script>
+
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+            /* =================================================
+               MOBILE NAVIGATION
+            ================================================= */
+
+            const menuToggle =
+                document.getElementById("menuToggle");
+
+            const navLinks =
+                document.getElementById("navLinks");
+
+
+            if (menuToggle && navLinks) {
+
+
+                menuToggle.addEventListener(
+                    "click",
+                    () => {
+
+
+                        navLinks.classList.toggle(
+                            "mobile-open"
+                        );
+
+
+                        const isOpen =
+                            navLinks.classList.contains(
+                                "mobile-open"
+                            );
+
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            String(isOpen)
+                        );
+
+
+                        menuToggle.innerHTML =
+                            isOpen
+
+                            ? '<i class="fa-solid fa-xmark"></i>'
+
+                            : '<i class="fa-solid fa-bars"></i>';
+
+                    }
+                );
+
+            }
+
+
+
+            /* =================================================
+               CATEGORY FILTER
+            ================================================= */
+
+            const filters =
+                document.querySelectorAll(
+                    ".category-filter"
+                );
+
+
+            const cards =
+                document.querySelectorAll(
+                    ".book-card"
+                );
+
+
+            const noResults =
+                document.getElementById(
+                    "noResults"
+                );
+
+
+            filters.forEach(filter => {
+
+
+                filter.addEventListener(
+                    "click",
+                    () => {
+
+
+                        filters.forEach(item => {
+
+                            item.classList.remove(
+                                "active"
+                            );
+
+                        });
+
+
+                        filter.classList.add(
+                            "active"
+                        );
+
+
+                        const category =
+                            filter.dataset.category;
+
+
+                        let visibleCount = 0;
+
+
+                        cards.forEach(card => {
+
+
+                            const cardCategory =
+                                card.dataset.category;
+
+
+                            const matches =
+                                category === "all" ||
+                                cardCategory === category;
+
+
+                            card.style.display =
+                                matches ? "" : "none";
+
+
+                            if (matches) {
+
+                                visibleCount++;
+
+                            }
+
+                        });
+
+
+                        if (noResults) {
+
+                            noResults.style.display =
+                                visibleCount === 0
+                                    ? "flex"
+                                    : "none";
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+
+            /* =================================================
+               SEARCH
+            ================================================= */
+
+            const searchInput =
+                document.getElementById(
+                    "bookSearch"
+                );
+
+
+            if (searchInput) {
+
+
+                searchInput.addEventListener(
+                    "input",
+                    () => {
+
+
+                        const query =
+                            searchInput.value
+                                .toLowerCase()
+                                .trim();
+
+
+                        let visibleCount = 0;
+
+
+                        cards.forEach(card => {
+
+
+                            const title =
+                                card.dataset.title || "";
+
+
+                            const author =
+                                card.dataset.author || "";
+
+
+                            const category =
+                                (
+                                    card.dataset.category || ""
+                                ).toLowerCase();
+
+
+                            const matches =
+                                title.includes(query) ||
+                                author.includes(query) ||
+                                category.includes(query);
+
+
+                            card.style.display =
+                                matches ? "" : "none";
+
+
+                            if (matches) {
+
+                                visibleCount++;
+
+                            }
+
+                        });
+
+
+                        if (noResults) {
+
+                            noResults.style.display =
+                                visibleCount === 0
+                                    ? "flex"
+                                    : "none";
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+
+            /* =================================================
+               WISHLIST
+            ================================================= */
+
+            const wishlistButtons =
+                document.querySelectorAll(
+                    ".wishlist-btn"
+                );
+
+
+            wishlistButtons.forEach(button => {
+
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+
+                        const icon =
+                            button.querySelector("i");
+
+
+                        button.classList.toggle(
+                            "liked"
+                        );
+
+
+                        if (
+                            button.classList.contains(
+                                "liked"
+                            )
+                        ) {
+
+
+                            icon.classList.remove(
+                                "fa-regular"
+                            );
+
+
+                            icon.classList.add(
+                                "fa-solid"
+                            );
+
+
+                        } else {
+
+
+                            icon.classList.remove(
+                                "fa-solid"
+                            );
+
+
+                            icon.classList.add(
+                                "fa-regular"
+                            );
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+
+            /* =================================================
+               SCROLL REVEAL
+            ================================================= */
+
+            const revealElements =
+                document.querySelectorAll(
+                    ".reveal"
+                );
+
+
+            if (
+                "IntersectionObserver" in window
+            ) {
+
+
+                const observer =
+                    new IntersectionObserver(
+                        entries => {
+
+
+                            entries.forEach(entry => {
+
+
+                                if (
+                                    entry.isIntersecting
+                                ) {
+
+
+                                    entry.target.classList.add(
+                                        "visible"
+                                    );
+
+
+                                    observer.unobserve(
+                                        entry.target
+                                    );
+
+                                }
+
+                            });
+
+                        },
+                        {
+                            threshold: 0.12
+                        }
+                    );
+
+
+                revealElements.forEach(element => {
+
+                    observer.observe(element);
+
+                });
+
+
+            } else {
+
+
+                revealElements.forEach(element => {
+
+                    element.classList.add(
+                        "visible"
+                    );
+
+                });
+
+            }
+
+
+
+            /* =================================================
+               COUNTERS
+            ================================================= */
+
+            const counters =
+                document.querySelectorAll(
+                    "[data-count]"
+                );
+
+
+            if (
+                "IntersectionObserver" in window
+            ) {
+
+
+                const counterObserver =
+                    new IntersectionObserver(
+                        entries => {
+
+
+                            entries.forEach(entry => {
+
+
+                                if (
+                                    !entry.isIntersecting
+                                ) {
+                                    return;
+                                }
+
+
+                                const counter =
+                                    entry.target;
+
+
+                                const target =
+                                    parseFloat(
+                                        counter.dataset.count
+                                    );
+
+
+                                const duration =
+                                    1400;
+
+
+                                const start =
+                                    performance.now();
+
+
+                                function updateCounter(time) {
+
+
+                                    const progress =
+                                        Math.min(
+                                            (time - start) /
+                                            duration,
+                                            1
+                                        );
+
+
+                                    const current =
+                                        target * progress;
+
+
+                                    if (
+                                        Number.isInteger(
+                                            target
+                                        )
+                                    ) {
+
+
+                                        counter.textContent =
+                                            Math.floor(
+                                                current
+                                            ) + "+";
+
+
+                                    } else {
+
+
+                                        counter.textContent =
+                                            current.toFixed(
+                                                1
+                                            );
+
+                                    }
+
+
+                                    if (
+                                        progress < 1
+                                    ) {
+
+
+                                        requestAnimationFrame(
+                                            updateCounter
+                                        );
+
+                                    }
+
+                                }
+
+
+                                requestAnimationFrame(
+                                    updateCounter
+                                );
+
+
+                                counterObserver.unobserve(
+                                    counter
+                                );
+
+                            });
+
+                        },
+                        {
+                            threshold: 0.5
+                        }
+                    );
+
+
+                counters.forEach(counter => {
+
+                    counterObserver.observe(
+                        counter
+                    );
+
+                });
+
+            }
+
+
+
+            /* =================================================
+               NAVBAR SCROLL
+            ================================================= */
+
+            const navbar =
+                document.querySelector(
+                    ".navbar"
+                );
+
+
+            window.addEventListener(
+                "scroll",
+                () => {
+
+
+                    if (!navbar) {
+                        return;
+                    }
+
+
+                    navbar.classList.toggle(
+                        "scrolled",
+                        window.scrollY > 30
+                    );
+
+                }
+            );
+
+        });
+
+
+
+        /* =====================================================
+           TOAST
+        ===================================================== */
+
+        function showToast(message) {
+
+
+            const toast =
+                document.getElementById(
+                    "toast"
+                );
+
+
+            if (!toast) {
+                return;
+            }
+
+
+            const content =
+                toast.querySelector(
+                    ".toast-content span"
+                );
+
+
+            if (
+                content &&
+                message
+            ) {
+
+                content.textContent =
+                    message;
+
+            }
+
+
+            toast.classList.add(
+                "show"
+            );
+
+
+            clearTimeout(
+                window.toastTimer
+            );
+
+
+            window.toastTimer =
+                setTimeout(
+                    () => {
+
+                        toast.classList.remove(
+                            "show"
+                        );
+
+                    },
+                    3000
+                );
+
+        }
+
+
+
+        function closeToast() {
+
+
+            const toast =
+                document.getElementById(
+                    "toast"
+                );
+
+
+            if (toast) {
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

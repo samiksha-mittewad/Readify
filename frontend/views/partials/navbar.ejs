@@ -1,0 +1,518 @@
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <!-- LOGO -->
+
+        <a href="/" class="nav-logo">
+
+            <span class="logo-icon">
+                <i class="fa-solid fa-book-open"></i>
+            </span>
+
+            <span class="logo-text">
+                Readify
+            </span>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <div class="nav-links">
+
+            <a href="/" class="nav-link">
+                Home
+            </a>
+
+            <a href="/books" class="nav-link">
+                Books
+            </a>
+
+
+            <!-- CART -->
+
+            <a href="/cart" class="nav-cart">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span>
+                    Cart
+                </span>
+
+            </a>
+
+
+            <% if (user) { %>
+
+                <!-- LOGGED IN -->
+
+                <div class="nav-user">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <span>
+                        <%= user.name %>
+                    </span>
+
+                </div>
+
+                <a href="/logout" class="nav-login">
+                    Logout
+                </a>
+
+
+            <% } else { %>
+
+                <!-- NOT LOGGED IN -->
+
+                <a href="/login" class="nav-login">
+                    Login
+                </a>
+
+                <a href="/register" class="nav-register">
+                    Register
+                </a>
+
+            <% } %>
+
+        </div>
+
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+            type="button"
+            class="mobile-menu-btn"
+            onclick="toggleMobileMenu()"
+        >
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </div>
+
+</nav>
+
+
+<script>
+
+    function toggleMobileMenu() {
+
+        const navLinks =
+            document.querySelector(".nav-links");
+
+        navLinks.classList.toggle("mobile-open");
+
+    }
+
+</script>
+
+
+<style>
+
+    /* =========================================
+       NAVBAR
+    ========================================= */
+
+    .navbar {
+
+        position: relative;
+
+        width: 100%;
+
+        background: #fffdf8;
+
+        border-bottom:
+            1px solid
+            rgba(23, 76, 60, 0.08);
+
+        z-index: 1000;
+
+    }
+
+
+    .nav-container {
+
+        max-width: 1250px;
+
+        margin: 0 auto;
+
+        padding: 17px 6%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 30px;
+
+    }
+
+
+    /* =========================================
+       LOGO
+    ========================================= */
+
+    .nav-logo {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        color: #174c3c;
+
+        text-decoration: none;
+
+    }
+
+
+    .logo-icon {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: 38px;
+
+        height: 38px;
+
+        border-radius: 10px;
+
+        background: #174c3c;
+
+        color: #c59a5a;
+
+    }
+
+
+    .logo-text {
+
+        color: #17201d;
+
+        font-family:
+            "Cormorant Garamond",
+            Georgia,
+            serif;
+
+        font-size: 30px;
+
+        font-weight: 700;
+
+    }
+
+
+    /* =========================================
+       LINKS
+    ========================================= */
+
+    .nav-links {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 24px;
+
+    }
+
+
+    .nav-link {
+
+        color: #555a56;
+
+        text-decoration: none;
+
+        font-family:
+            "Space Grotesk",
+            sans-serif;
+
+        font-size: 11px;
+
+        font-weight: 700;
+
+        transition: 0.2s ease;
+
+    }
+
+
+    .nav-link:hover {
+
+        color: #174c3c;
+
+    }
+
+
+    /* =========================================
+       CART
+    ========================================= */
+
+    .nav-cart {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 7px;
+
+        padding: 9px 14px;
+
+        border-radius: 22px;
+
+        background: #f1eee6;
+
+        color: #174c3c;
+
+        text-decoration: none;
+
+        font-family:
+            "Space Grotesk",
+            sans-serif;
+
+        font-size: 11px;
+
+        font-weight: 700;
+
+        transition:
+            background 0.2s ease,
+            transform 0.2s ease;
+
+    }
+
+
+    .nav-cart i {
+
+        font-size: 12px;
+
+    }
+
+
+    .nav-cart:hover {
+
+        background: #e5dfd1;
+
+        transform: translateY(-2px);
+
+    }
+
+
+    /* =========================================
+       USER
+    ========================================= */
+
+    .nav-user {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 7px;
+
+        color: #174c3c;
+
+        font-family:
+            "DM Sans",
+            sans-serif;
+
+        font-size: 12px;
+
+        font-weight: 600;
+
+    }
+
+
+    .nav-user i {
+
+        color: #c59a5a;
+
+    }
+
+
+    /* =========================================
+       LOGIN
+    ========================================= */
+
+    .nav-login {
+
+        color: #174c3c;
+
+        text-decoration: none;
+
+        font-family:
+            "Space Grotesk",
+            sans-serif;
+
+        font-size: 11px;
+
+        font-weight: 700;
+
+        transition: 0.2s ease;
+
+    }
+
+
+    .nav-login:hover {
+
+        color: #c59a5a;
+
+    }
+
+
+    /* =========================================
+       REGISTER
+    ========================================= */
+
+    .nav-register {
+
+        padding: 10px 17px;
+
+        border-radius: 22px;
+
+        background: #174c3c;
+
+        color: #fffdf8;
+
+        text-decoration: none;
+
+        font-family:
+            "Space Grotesk",
+            sans-serif;
+
+        font-size: 10px;
+
+        font-weight: 700;
+
+        transition:
+            background 0.2s ease,
+            transform 0.2s ease;
+
+    }
+
+
+    .nav-register:hover {
+
+        background: #c59a5a;
+
+        color: #17201d;
+
+        transform: translateY(-2px);
+
+    }
+
+
+    /* =========================================
+       MOBILE BUTTON
+    ========================================= */
+
+    .mobile-menu-btn {
+
+        display: none;
+
+        border: none;
+
+        background: transparent;
+
+        color: #174c3c;
+
+        font-size: 20px;
+
+        cursor: pointer;
+
+    }
+
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 800px) {
+
+        .mobile-menu-btn {
+
+            display: block;
+
+        }
+
+
+        .nav-links {
+
+            display: none;
+
+            position: absolute;
+
+            top: 100%;
+
+            left: 0;
+
+            right: 0;
+
+            flex-direction: column;
+
+            align-items: stretch;
+
+            gap: 0;
+
+            padding: 20px 6%;
+
+            background: #fffdf8;
+
+            border-bottom:
+                1px solid
+                rgba(23, 76, 60, 0.08);
+
+            box-shadow:
+                0 15px 30px
+                rgba(23, 32, 29, 0.08);
+
+        }
+
+
+        .nav-links.mobile-open {
+
+            display: flex;
+
+        }
+
+
+        .nav-link,
+        .nav-cart,
+        .nav-login,
+        .nav-register,
+        .nav-user {
+
+            width: 100%;
+
+            padding: 13px 0;
+
+        }
+
+
+        .nav-cart {
+
+            justify-content: center;
+
+        }
+
+
+        .nav-register {
+
+            text-align: center;
+
+        }
+
+
+        .nav-user {
+
+            justify-content: center;
+
+        }
+
+    }
+
+</style>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Books | Readify</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Readify CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <%- include("partials/navbar", { user: user }) %>
+
+
+    <!-- =========================
+         CATALOGUE HERO
+    ========================== -->
+
+    <section class="catalogue-hero">
+
+        <div class="catalogue-hero-content">
+
+            <span class="section-label">
+                <i class="fa-solid fa-book-open"></i>
+                READIFY COLLECTION
+            </span>
+
+            <h1>
+                Find Your Next
+                <span>Great Read.</span>
+            </h1>
+
+            <p>
+                Explore our carefully selected collection of books,
+                from timeless stories to modern knowledge.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CATALOGUE
+    ========================== -->
+
+    <main class="catalogue-container">
+
+        <!-- Header -->
+
+        <div class="catalogue-header">
+
+            <div>
+                <span class="catalogue-eyebrow">
+                    OUR COLLECTION
+                </span>
+
+                <h2>Browse Books</h2>
+            </div>
+
+            <div class="book-count">
+                <i class="fa-solid fa-layer-group"></i>
+
+                <span>
+                    <%= books.length %> Books
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             BOOK GRID
+        ========================== -->
+
+        <% if (books && books.length > 0) { %>
+
+            <div class="books-grid">
+
+                <% books.forEach((book, index) => { %>
+
+                    <article class="book-card reveal"></article>
+
+                        <!-- Book Image -->
+
+                        <div class="book-image-wrapper">
+
+                            <img
+                                src="<%= book.image %>"
+                                alt="<%= book.title %>"
+                                class="book-image"
+                                loading="lazy"
+                            >
+
+                            <span class="book-category">
+                                <%= book.category %>
+                            </span>
+
+                            <% if (book.stock <= 0) { %>
+
+                                <span class="stock-badge out">
+                                    Out of Stock
+                                </span>
+
+                            <% } else if (book.stock <= 5) { %>
+
+                                <span class="stock-badge low">
+                                    Only <%= book.stock %> left
+                                </span>
+
+                            <% } %>
+
+                        </div>
+
+
+                        <!-- Book Information -->
+
+                        <div class="book-info">
+
+                            <p class="book-author">
+                                <i class="fa-solid fa-pen-nib"></i>
+                                <%= book.author %>
+                            </p>
+
+                            <h3 class="book-title">
+                                <%= book.title %>
+                            </h3>
+
+                            <p class="book-description">
+                                <%= book.description %>
+                            </p>
+
+
+                            <!-- Bottom -->
+
+                            <div class="book-bottom">
+
+                                <div class="book-price">
+                                    ₹<%= Number(book.price).toFixed(2) %>
+                                </div>
+
+                                <a
+                                    href="/books/<%= book.id %>"
+                                    class="btn-view"
+                                >
+                                    View
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                <% }) %>
+
+            </div>
+
+        <% } else { %>
+
+            <!-- Empty Catalogue -->
+
+            <div class="empty-books">
+
+                <div class="empty-books-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+
+                <h3>No Books Available</h3>
+
+                <p>
+                    Our shelves are currently empty.
+                    Even libraries occasionally have bad days.
+                </p>
+
+                <a href="/" class="btn-primary">
+                    Back to Home
+                </a>
+
+            </div>
+
+        <% } %>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <%- include("partials/footer") %>
+
+
+    <!-- =========================
+         SCRIPTS
+    ========================== -->
+
+    <script src="/js/main.js"></script>
+
+</body>
+
+</html>

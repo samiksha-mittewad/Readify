@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Create Account | Readify</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+
+<body class="auth-page">
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <a href="/" class="auth-logo">
+                📖 Read<span>ify</span>
+            </a>
+
+
+            <h1>Create your account</h1>
+
+            <p class="auth-subtitle">
+                Join Readify and discover your next great book.
+            </p>
+
+
+            <% if (errors && errors.length > 0) { %>
+
+                <div class="error-box">
+
+                    <% errors.forEach(error => { %>
+
+                        <p>⚠ <%= error.msg %></p>
+
+                    <% }) %>
+
+                </div>
+
+            <% } %>
+
+
+            <form
+                action="/register"
+                method="POST"
+                class="auth-form"
+            >
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your name"
+                    value="<%= old.name || '' %>"
+                    required
+                >
+
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    value="<%= old.email || '' %>"
+                    required
+                >
+
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Minimum 6 characters"
+                    required
+                >
+
+
+                <button type="submit" class="auth-button">
+                    Create Account
+                </button>
+
+            </form>
+
+
+            <p class="auth-footer">
+
+                Already have an account?
+
+                <a href="/login">
+                    Login
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

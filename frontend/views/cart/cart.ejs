@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Cart | Readify</title>
+
+
+    <!-- Google Fonts -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- Main CSS -->
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+
+    <style>
+
+        /* =========================================
+           CART PAGE
+        ========================================= */
+
+        .cart-page {
+
+            min-height: 100vh;
+
+            background: #f7f4ed;
+
+            padding: 80px 7%;
+
+        }
+
+
+        .cart-container {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .cart-header {
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .cart-label {
+
+            display: inline-block;
+
+            margin-bottom: 10px;
+
+            color: #c59a5a;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .cart-header h1 {
+
+            margin: 0;
+
+            color: #17201d;
+
+            font-family:
+                "Cormorant Garamond",
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(48px, 6vw, 72px);
+
+            line-height: 0.95;
+
+        }
+
+
+        .cart-header p {
+
+            margin-top: 12px;
+
+            color: #77747c;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================================
+           CART LAYOUT
+        ========================================= */
+
+        .cart-layout {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                350px;
+
+            gap: 35px;
+
+            align-items: start;
+
+        }
+
+
+        /* =========================================
+           CART ITEMS
+        ========================================= */
+
+        .cart-items {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 18px;
+
+        }
+
+
+        .cart-item {
+
+            display: grid;
+
+            grid-template-columns:
+                100px
+                minmax(0, 1fr)
+                auto;
+
+            gap: 22px;
+
+            align-items: center;
+
+            padding: 20px;
+
+            background: #fffdf8;
+
+            border: 1px solid
+                rgba(23, 76, 60, 0.08);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 12px 35px
+                rgba(23, 32, 29, 0.05);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+
+        }
+
+
+        .cart-item:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 18px 40px
+                rgba(23, 32, 29, 0.09);
+
+        }
+
+
+        /* =========================================
+           BOOK IMAGE
+        ========================================= */
+
+        .cart-item img {
+
+            width: 100px;
+
+            height: 135px;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 8px 20px
+                rgba(23, 32, 29, 0.14);
+
+        }
+
+
+        /* =========================================
+           BOOK INFO
+        ========================================= */
+
+        .cart-item-info {
+
+            min-width: 0;
+
+        }
+
+
+        .cart-item-category {
+
+            display: inline-block;
+
+            margin-bottom: 7px;
+
+            color: #9a7036;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.2px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .cart-item-info h3 {
+
+            margin: 0 0 5px;
+
+            color: #17201d;
+
+            font-family:
+                "Cormorant Garamond",
+                Georgia,
+                serif;
+
+            font-size: 27px;
+
+            line-height: 1;
+
+        }
+
+
+        .cart-item-author {
+
+            margin: 0 0 13px;
+
+            color: #77747c;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            font-size: 12px;
+
+        }
+
+
+        .cart-item-details {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+
+            color: #555a56;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size: 11px;
+
+        }
+
+
+        .cart-item-details span {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+        }
+
+
+        .cart-item-details i {
+
+            color: #c59a5a;
+
+        }
+
+
+        /* =========================================
+           PRICE
+        ========================================= */
+
+        .cart-item-price {
+
+            min-width: 100px;
+
+            text-align: right;
+
+        }
+
+
+        .cart-item-price .unit-price {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #77747c;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            font-size: 11px;
+
+        }
+
+
+        .cart-item-price .subtotal {
+
+            display: block;
+
+            color: #174c3c;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =========================================
+           REMOVE BUTTON
+        ========================================= */
+
+        .remove-cart {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 6px;
+
+            margin-top: 10px;
+
+            padding: 8px 12px;
+
+            border: 1px solid #e1dcd2;
+
+            border-radius: 20px;
+
+            background: transparent;
+
+            color: #77747c;
+
+            cursor: pointer;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
+
+        }
+
+
+        .remove-cart:hover {
+
+            background: #f4e7e3;
+
+            color: #9b4d3d;
+
+            border-color: #d9b8af;
+
+        }
+
+
+        /* =========================================
+           SUMMARY
+        ========================================= */
+
+        .cart-summary {
+
+            position: sticky;
+
+            top: 30px;
+
+            padding: 30px;
+
+            background: #174c3c;
+
+            color: #fffdf8;
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 20px 45px
+                rgba(23, 76, 60, 0.18);
+
+        }
+
+
+        .cart-summary h2 {
+
+            margin: 0 0 25px;
+
+            font-family:
+                "Cormorant Garamond",
+                Georgia,
+                serif;
+
+            font-size: 32px;
+
+            font-weight: 700;
+
+        }
+
+
+        .summary-line {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 13px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255, 253, 248, 0.15);
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            font-size: 13px;
+
+        }
+
+
+        .summary-line span {
+
+            color:
+                rgba(255, 253, 248, 0.7);
+
+        }
+
+
+        .summary-line strong {
+
+            color: #fffdf8;
+
+        }
+
+
+        .summary-total {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-top: 20px;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid
+                rgba(255, 253, 248, 0.25);
+
+        }
+
+
+        .summary-total span {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+        }
+
+
+        .summary-total strong {
+
+            color: #c59a5a;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size: 25px;
+
+        }
+
+
+        /* =========================================
+           CHECKOUT BUTTON
+        ========================================= */
+
+        .checkout-btn {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 15px 20px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #c59a5a;
+
+            color: #17201d;
+
+            cursor: pointer;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease;
+
+        }
+
+
+        .checkout-btn:hover {
+
+            background: #e0bc7e;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =========================================
+           CONTINUE SHOPPING
+        ========================================= */
+
+        .continue-shopping {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            margin-top: 20px;
+
+            color: rgba(255, 253, 248, 0.75);
+
+            text-decoration: none;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            font-size: 11px;
+
+            transition: color 0.2s ease;
+
+        }
+
+
+        .continue-shopping:hover {
+
+            color: #fffdf8;
+
+        }
+
+
+        /* =========================================
+           EMPTY CART
+        ========================================= */
+
+        .empty-cart {
+
+            padding: 80px 30px;
+
+            text-align: center;
+
+            background: #fffdf8;
+
+            border: 1px solid
+                rgba(23, 76, 60, 0.08);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(23, 32, 29, 0.05);
+
+        }
+
+
+        .empty-cart i {
+
+            display: block;
+
+            margin-bottom: 20px;
+
+            color: #c59a5a;
+
+            font-size: 55px;
+
+        }
+
+
+        .empty-cart h2 {
+
+            margin: 0 0 10px;
+
+            color: #17201d;
+
+            font-family:
+                "Cormorant Garamond",
+                Georgia,
+                serif;
+
+            font-size: 38px;
+
+        }
+
+
+        .empty-cart p {
+
+            margin-bottom: 25px;
+
+            color: #77747c;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            font-size: 14px;
+
+        }
+
+
+        .browse-books-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 13px 22px;
+
+            border-radius: 25px;
+
+            background: #174c3c;
+
+            color: #fffdf8;
+
+            text-decoration: none;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .browse-books-btn:hover {
+
+            background: #c59a5a;
+
+            color: #17201d;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            .cart-layout {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .cart-summary {
+
+                position: static;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .cart-page {
+
+                padding: 50px 5%;
+
+            }
+
+
+            .cart-item {
+
+                grid-template-columns:
+                    75px
+                    minmax(0, 1fr);
+
+                gap: 15px;
+
+            }
+
+
+            .cart-item img {
+
+                width: 75px;
+
+                height: 105px;
+
+            }
+
+
+            .cart-item-price {
+
+                grid-column: 2;
+
+                text-align: left;
+
+                min-width: auto;
+
+            }
+
+
+            .cart-item-info h3 {
+
+                font-size: 23px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+
+    <%- include("../partials/navbar") %>
+
+
+    <!-- =========================================
+         CART
+    ========================================= -->
+
+    <main class="cart-page">
+
+        <div class="cart-container">
+
+
+            <!-- HEADER -->
+
+            <header class="cart-header">
+
+                <span class="cart-label">
+                    Your Collection
+                </span>
+
+                <h1>
+                    My Cart
+                </h1>
+
+                <p>
+                    Your selected books, ready for their next chapter.
+                </p>
+
+            </header>
+
+
+            <% if (!cartItems || cartItems.length === 0) { %>
+
+
+                <!-- =================================
+                     EMPTY CART
+                ================================= -->
+
+                <div class="empty-cart">
+
+                    <i
+                        class="fa-solid fa-cart-shopping"
+                    ></i>
+
+                    <h2>
+                        Your cart is empty
+                    </h2>
+
+                    <p>
+                        Your next great read is waiting for you.
+                    </p>
+
+                    <a
+                        href="/books"
+                        class="browse-books-btn"
+                    >
+
+                        <i
+                            class="fa-solid fa-book-open"
+                        ></i>
+
+                        Browse Books
+
+                    </a>
+
+                </div>
+
+
+            <% } else { %>
+
+
+                <!-- =================================
+                     CART CONTENT
+                ================================= -->
+
+                <div class="cart-layout">
+
+
+                    <!-- =================================
+                         ITEMS
+                    ================================= -->
+
+                    <div class="cart-items">
+
+
+                        <% cartItems.forEach(item => { %>
+
+
+                            <article class="cart-item">
+
+
+                                <!-- BOOK IMAGE -->
+
+                                <% if (item.image) { %>
+
+                                    <img
+                                        src="<%= item.image %>"
+                                        alt="<%= item.title %>"
+                                    >
+
+                                <% } else { %>
+
+                                    <div
+                                        style="
+                                            width:100px;
+                                            height:135px;
+                                            display:flex;
+                                            align-items:center;
+                                            justify-content:center;
+                                            background:#e8e3d8;
+                                            border-radius:8px;
+                                            color:#174c3c;
+                                            font-size:35px;
+                                        "
+                                    >
+
+                                        <i
+                                            class="fa-solid fa-book"
+                                        ></i>
+
+                                    </div>
+
+                                <% } %>
+
+
+                                <!-- BOOK INFORMATION -->
+
+                                <div class="cart-item-info">
+
+
+                                    <% if (item.category) { %>
+
+                                        <span class="cart-item-category">
+
+                                            <%= item.category %>
+
+                                        </span>
+
+                                    <% } %>
+
+
+                                    <h3>
+
+                                        <%= item.title %>
+
+                                    </h3>
+
+
+                                    <p class="cart-item-author">
+
+                                        by <%= item.author %>
+
+                                    </p>
+
+
+                                    <div class="cart-item-details">
+
+
+                                        <span>
+
+                                            <i
+                                                class="fa-solid fa-layer-group"
+                                            ></i>
+
+                                            Quantity:
+                                            <strong>
+                                                <%= item.quantity %>
+                                            </strong>
+
+                                        </span>
+
+
+                                        <span>
+
+                                            <i
+                                                class="fa-solid fa-tag"
+                                            ></i>
+
+                                            ₹<%= Number(item.price).toFixed(2) %>
+                                            each
+
+                                        </span>
+
+                                    </div>
+
+
+                                    <!-- REMOVE -->
+
+                                    <button
+                                        type="button"
+                                        class="remove-cart"
+                                        data-cart-id="<%= item.id %>"
+                                    >
+
+                                        <i
+                                            class="fa-solid fa-trash"
+                                        ></i>
+
+                                        Remove
+
+                                    </button>
+
+
+                                </div>
+
+
+                                <!-- PRICE -->
+
+                                <div class="cart-item-price">
+
+                                    <span class="unit-price">
+                                        Subtotal
+                                    </span>
+
+                                    <span class="subtotal">
+
+                                        ₹<%= Number(item.subtotal).toFixed(2) %>
+
+                                    </span>
+
+                                </div>
+
+
+                            </article>
+
+
+                        <% }) %>
+
+
+                    </div>
+
+
+                    <!-- =================================
+                         SUMMARY
+                    ================================= -->
+
+                    <aside class="cart-summary">
+
+
+                        <h2>
+                            Order Summary
+                        </h2>
+
+
+                        <div class="summary-line">
+
+                            <span>
+                                Items
+                            </span>
+
+                            <strong>
+
+                                <%= cartItems.reduce(
+                                    (sum, item) =>
+                                    sum + Number(item.quantity),
+                                    0
+                                ) %>
+
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-line">
+
+                            <span>
+                                Subtotal
+                            </span>
+
+                            <strong>
+                                ₹<%= Number(total).toFixed(2) %>
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-line">
+
+                            <span>
+                                Delivery
+                            </span>
+
+                            <strong>
+                                Free
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-total">
+
+                            <span>
+                                TOTAL
+                            </span>
+
+                            <strong>
+                                ₹<%= Number(total).toFixed(2) %>
+                            </strong>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="checkout-btn"
+                            onclick="alert('Order placed successfully!')"
+                        >
+
+                            <i
+                                class="fa-solid fa-lock"
+                            ></i>
+
+                            Proceed to Checkout
+
+                        </button>
+
+
+                        <a
+                            href="/books"
+                            class="continue-shopping"
+                        >
+
+                            <i
+                                class="fa-solid fa-arrow-left"
+                            ></i>
+
+                            Continue Shopping
+
+                        </a>
+
+
+                    </aside>
+
+                </div>
+
+
+            <% } %>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <%- include("../partials/footer") %>
+
+
+    <!-- =========================================
+         CART JAVASCRIPT
+    ========================================= -->
+
+    <script src="/js/cart.js"></script>
+
+
+</body>
+
+</html>
